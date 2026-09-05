@@ -1,9 +1,8 @@
 # OmniFlow MCP — Google Flow (Veo 3 / Omni 1.1) automation for Claude
 
-[![Chrome Web Store users](https://img.shields.io/chrome-web-store/users/kljcdogggnjabpcffmbjbpaeahmkinik?label=Chrome%20Web%20Store%20users&color=B5734A)](https://chromewebstore.google.com/detail/omniflow-%E2%80%94-mcp-for-google/kljcdogggnjabpcffmbjbpaeahmkinik)
-[![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/kljcdogggnjabpcffmbjbpaeahmkinik?label=extension)](https://chromewebstore.google.com/detail/omniflow-%E2%80%94-mcp-for-google/kljcdogggnjabpcffmbjbpaeahmkinik)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-OmniFlow-B5734A?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/omniflow-%E2%80%94-mcp-for-google/kljcdogggnjabpcffmbjbpaeahmkinik)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-OmniFlow-B5734A?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/omniflow-%E2%80%94-mcp-for-google/kljcdogggnjabpcffmbjbpaeahmkinik)
 [![npm](https://img.shields.io/npm/v/omniflow-mcp?label=npm%20omniflow-mcp)](https://www.npmjs.com/package/omniflow-mcp)
-[![npm downloads](https://img.shields.io/npm/dm/omniflow-mcp)](https://www.npmjs.com/package/omniflow-mcp)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **Google Flow has no API.** This MCP server gives Claude Code and Claude Desktop hands inside Google Flow: batch video generation on Veo 3 / Omni 1.1, keyframe transitions, scene chaining, video-to-video edits and auto-download — on the Google AI plan you already pay for. No per-second billing, no API keys.
