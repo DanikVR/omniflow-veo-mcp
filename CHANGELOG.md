@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2 — 2026-09-05
+
+- Published on npm: `npx -y omniflow-mcp` is back as the primary install command (GitHub install kept as a fallback).
+- CI publishes via npm Trusted Publishing (OIDC) with provenance — no npm tokens in the repository.
+
 ## 1.1.1 — 2026-09-05
 
 - Bridge no longer dies when the working directory is not writable (e.g. launched from `C:\Windows\System32`): results fall back to `~/omniflow-out`; an explicit `OF_OUT` is never overridden.

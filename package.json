@@ -1,6 +1,6 @@
 {
   "name": "omniflow-mcp",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "MCP server for Google Flow (Veo 3 / Omni 1.1): batch video generation from Claude Code and Claude Desktop through the OmniFlow Chrome extension. The missing Google Flow API — prompts, queue, keyframes, auto-download on your own Google AI plan.",
   "type": "module",
   "bin": {

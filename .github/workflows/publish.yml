@@ -1,8 +1,8 @@
 name: Publish to npm
 
-# Пуш тега v1.2.3 → проверка синтаксиса → npm publish.
-# Публикация выполняется только если секрет NPM_TOKEN похож на настоящий npm-токен (npm_…):
-# иначе прогон остаётся зелёным, шаг publish пропускается. Токен: npm → Access Tokens → Granular, Read and write.
+# Пуш тега v1.2.3 → проверка синтаксиса → npm publish через Trusted Publishing (OIDC).
+# Токены не нужны: на npmjs.com у пакета настроен trusted publisher
+# (GitHub Actions, DanikVR/omniflow-veo-mcp, publish.yml). Нужен npm ≥ 11.5.1 — ставим свежий.
 
 on:
   push:
@@ -15,20 +15,14 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           registry-url: https://registry.npmjs.org
+      - run: npm install -g npm@latest
+      - run: npm --version
       - run: npm run check
-      - name: Publish to npm
-        if: startsWith(env.NPM_TOKEN, 'npm_')
+      - name: Publish to npm (trusted publishing, provenance)
         run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ env.NPM_TOKEN }}
-      - name: No npm token — publish skipped
-        if: ${{ !startsWith(env.NPM_TOKEN, 'npm_') }}
-        run: echo "NPM_TOKEN secret is missing or is not an npm token (npm_...); package check passed, publish skipped."

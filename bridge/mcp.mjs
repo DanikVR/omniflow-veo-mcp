@@ -12,7 +12,7 @@
 import { startBridge, DEFAULT_PORT, HOST, TOKEN } from './server.mjs';
 
 const PROTOCOL_VERSION = '2025-06-18';
-const SERVER_INFO = { name: 'omniflow', version: '1.1.1' };
+const SERVER_INFO = { name: 'omniflow', version: '1.1.2' };
 const BASE = `http://${HOST}:${DEFAULT_PORT}`;
 const log = (...a) => console.error('[omniflow-mcp]', ...a);
 
