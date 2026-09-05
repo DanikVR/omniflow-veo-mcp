@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "omniflow": {
+      "command": "npx",
+      "args": ["-y", "omniflow-mcp"],
+      "env": {
+        "OF_OUT": "omniflow-out"
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "omniflow-mcp",
+  "version": "1.1.0",
+  "description": "MCP server for Google Flow (Veo 3 / Omni 1.1): batch video generation from Claude Code and Claude Desktop through the OmniFlow Chrome extension. The missing Google Flow API — prompts, queue, keyframes, auto-download on your own Google AI plan.",
+  "type": "module",
+  "bin": {
+    "omniflow-mcp": "bridge/mcp.mjs"
+  },
+  "files": [
+    "bridge/",
+    "skills/",
+    "docs/",
+    "examples/",
+    "README.md",
+    "README.ru.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node bridge/mcp.mjs",
+    "bridge": "node bridge/server.mjs",
+    "check": "node --check bridge/mcp.mjs && node --check bridge/server.mjs"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "claude",
+    "claude-code",
+    "claude-desktop",
+    "google-flow",
+    "veo",
+    "veo-3",
+    "omni",
+    "video-generation",
+    "ai-video",
+    "text-to-video",
+    "chrome-extension",
+    "automation",
+    "batch"
+  ],
+  "author": "DanikVR (https://t.me/GuruAppSheet)",
+  "license": "MIT",
+  "homepage": "https://lingoflow.pro/omniflow?utm_source=npm&utm_medium=package&utm_campaign=omniflow-mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanikVR/omniflow-veo-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DanikVR/omniflow-veo-mcp/issues"
+  }
+}

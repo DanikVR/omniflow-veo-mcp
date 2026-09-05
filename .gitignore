@@ -1,0 +1,6 @@
+node_modules/
+omniflow-out/
+.omniflow-token
+*.log
+.DS_Store
+Thumbs.db
