@@ -38,7 +38,7 @@ function ensureOutDir() {
     const fallback = path.join(os.homedir(), 'omniflow-out');
     log(`cannot create ${OUT_DIR} (${e.code}) — using ${fallback}`);
     OUT_DIR = fallback;
-    ensureOutDir();
+    fs.mkdirSync(OUT_DIR, { recursive: true });
   }
 }
 const TOKEN_FILE = path.join(os.homedir(), '.omniflow-token');
@@ -466,7 +466,7 @@ export function createServer() {
 /** Поднять мост. Возвращает {port, close()}; порт уже занят — считаем, что мост уже поднят. */
 export function startBridge(port = DEFAULT_PORT, host = HOST) {
   return new Promise((resolve, reject) => {
-    fs.mkdirSync(OUT_DIR, { recursive: true });
+    ensureOutDir();
     const srv = createServer();
     srv.once('error', (e) => (e && e.code === 'EADDRINUSE' ? resolve({ port, host, already: true, close: () => {} }) : reject(e)));
     srv.listen(port, host, () => {
