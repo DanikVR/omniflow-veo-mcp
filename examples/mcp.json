@@ -2,7 +2,7 @@
   "mcpServers": {
     "omniflow": {
       "command": "npx",
-      "args": ["-y", "github:DanikVR/omniflow-veo-mcp"],
+      "args": ["-y", "omniflow-mcp"],
       "env": {
         "OF_OUT": "omniflow-out"
       }

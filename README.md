@@ -3,6 +3,7 @@
 [![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-OmniFlow-B5734A?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/omniflow-%E2%80%94-mcp-for-google/kljcdogggnjabpcffmbjbpaeahmkinik)
 [![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/kljcdogggnjabpcffmbjbpaeahmkinik?label=extension)](https://chromewebstore.google.com/detail/omniflow-%E2%80%94-mcp-for-google/kljcdogggnjabpcffmbjbpaeahmkinik)
 [![npm](https://img.shields.io/npm/v/omniflow-mcp?label=npm%20omniflow-mcp)](https://www.npmjs.com/package/omniflow-mcp)
+[![npm downloads](https://img.shields.io/npm/dm/omniflow-mcp)](https://www.npmjs.com/package/omniflow-mcp)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 **Google Flow has no API.** This MCP server gives Claude Code and Claude Desktop hands inside Google Flow: batch video generation on Veo 3 / Omni 1.1, keyframe transitions, scene chaining, video-to-video edits and auto-download — on the Google AI plan you already pay for. No per-second billing, no API keys.
@@ -36,17 +37,19 @@ The MCP server (this repo) is pure transport: five tools and a local HTTP bridge
 Claude Code:
 
 ```bash
-claude mcp add omniflow -- npx -y github:DanikVR/omniflow-veo-mcp
+claude mcp add omniflow -- npx -y omniflow-mcp
 ```
 
-> **Windows:** if PowerShell refuses to run `claude.ps1` / `npm.ps1` (script execution policy), call the `.cmd` shims instead: `claude.cmd mcp add omniflow -- npx.cmd -y github:DanikVR/omniflow-veo-mcp`.
+> **Windows:** if PowerShell refuses to run `claude.ps1` / `npm.ps1` (script execution policy), call the `.cmd` shims instead: `claude.cmd mcp add omniflow -- npx.cmd -y omniflow-mcp`.
+
+> No npm? The same server runs straight from GitHub: `npx -y github:DanikVR/omniflow-veo-mcp`.
 
 Claude Desktop — add to `claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
-    "omniflow": { "command": "npx", "args": ["-y", "github:DanikVR/omniflow-veo-mcp"] }
+    "omniflow": { "command": "npx", "args": ["-y", "omniflow-mcp"] }
   }
 }
 ```
@@ -106,7 +109,7 @@ Copy them into your project's `.claude/skills/` (or `~/.claude/skills/` for all 
 
 **Is the extension free?** The first 24 hours after install are free without a key. Then a free week with a card, then €29/year or €79 once. Pricing lives on [the product page](https://lingoflow.pro/omniflow?utm_source=github&utm_medium=readme&utm_campaign=omniflow-mcp#pricing).
 
-**Can I run the bridge on one machine and Claude on another?** Yes — `OF_HOST=0.0.0.0 OF_PORT=8787 npx -y github:DanikVR/omniflow-veo-mcp` on the machine with Chrome, then point the extension's bridge URL (extension settings) to it and pass the token.
+**Can I run the bridge on one machine and Claude on another?** Yes — `OF_HOST=0.0.0.0 OF_PORT=8787 npx -y omniflow-mcp` on the machine with Chrome, then point the extension's bridge URL (extension settings) to it and pass the token.
 
 **Where do the files go?** `omniflow-out/` in the current working directory, or `OF_OUT=/path`.
 
