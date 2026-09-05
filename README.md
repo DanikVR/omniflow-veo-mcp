@@ -1,7 +1,7 @@
 # OmniFlow MCP — Google Flow (Veo 3 / Omni 1.1) automation for Claude
 
 [![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-OmniFlow-B5734A?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/omniflow-%E2%80%94-mcp-for-google/kljcdogggnjabpcffmbjbpaeahmkinik)
-[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-OmniFlow-B5734A?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/omniflow-%E2%80%94-mcp-for-google/kljcdogggnjabpcffmbjbpaeahmkinik)
+[![Chrome Web Store version](https://img.shields.io/chrome-web-store/v/kljcdogggnjabpcffmbjbpaeahmkinik?label=extension)](https://chromewebstore.google.com/detail/omniflow-%E2%80%94-mcp-for-google/kljcdogggnjabpcffmbjbpaeahmkinik)
 [![npm](https://img.shields.io/npm/v/omniflow-mcp?label=npm%20omniflow-mcp)](https://www.npmjs.com/package/omniflow-mcp)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
