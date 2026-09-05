@@ -23,4 +23,5 @@ jobs:
       - run: npm run check
       - run: npm publish --provenance --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # Секрет может называться NPM_TOKEN или LING (так он заведён в репозитории) — берётся первый непустой.
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN || secrets.LING }}
