@@ -31,7 +31,7 @@ MCP-сервер (этот репозиторий) — чистый трансп
 Claude Code:
 
 ```bash
-claude mcp add omniflow -- npx -y omniflow-mcp
+claude mcp add omniflow -- npx -y github:DanikVR/omniflow-veo-mcp
 ```
 
 Claude Desktop — в `claude_desktop_config.json`:
@@ -39,7 +39,7 @@ Claude Desktop — в `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "omniflow": { "command": "npx", "args": ["-y", "omniflow-mcp"] }
+    "omniflow": { "command": "npx", "args": ["-y", "github:DanikVR/omniflow-veo-mcp"] }
   }
 }
 ```
@@ -99,7 +99,7 @@ Claude Desktop — в `claude_desktop_config.json`:
 
 **Расширение бесплатное?** Первые 24 часа после установки — без ключа. Дальше бесплатная неделя с картой, затем €29 в год или €79 навсегда. Цены — на [странице продукта](https://lingoflow.pro/omniflow?utm_source=github&utm_medium=readme_ru&utm_campaign=omniflow-mcp#pricing).
 
-**Мост на одной машине, Claude на другой?** Да: `OF_HOST=0.0.0.0 OF_PORT=8787 npx omniflow-mcp` на машине с Chrome, в настройках расширения указать адрес моста и токен.
+**Мост на одной машине, Claude на другой?** Да: `OF_HOST=0.0.0.0 OF_PORT=8787 npx -y github:DanikVR/omniflow-veo-mcp` на машине с Chrome, в настройках расширения указать адрес моста и токен.
 
 **Куда падают файлы?** В `omniflow-out/` текущего каталога, либо `OF_OUT=/путь`.
 

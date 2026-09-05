@@ -36,7 +36,7 @@ The MCP server (this repo) is pure transport: five tools and a local HTTP bridge
 Claude Code:
 
 ```bash
-claude mcp add omniflow -- npx -y omniflow-mcp
+claude mcp add omniflow -- npx -y github:DanikVR/omniflow-veo-mcp
 ```
 
 Claude Desktop — add to `claude_desktop_config.json`:
@@ -44,7 +44,7 @@ Claude Desktop — add to `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "omniflow": { "command": "npx", "args": ["-y", "omniflow-mcp"] }
+    "omniflow": { "command": "npx", "args": ["-y", "github:DanikVR/omniflow-veo-mcp"] }
   }
 }
 ```
@@ -104,7 +104,7 @@ Copy them into your project's `.claude/skills/` (or `~/.claude/skills/` for all 
 
 **Is the extension free?** The first 24 hours after install are free without a key. Then a free week with a card, then €29/year or €79 once. Pricing lives on [the product page](https://lingoflow.pro/omniflow?utm_source=github&utm_medium=readme&utm_campaign=omniflow-mcp#pricing).
 
-**Can I run the bridge on one machine and Claude on another?** Yes — `OF_HOST=0.0.0.0 OF_PORT=8787 npx omniflow-mcp` on the machine with Chrome, then point the extension's bridge URL (extension settings) to it and pass the token.
+**Can I run the bridge on one machine and Claude on another?** Yes — `OF_HOST=0.0.0.0 OF_PORT=8787 npx -y github:DanikVR/omniflow-veo-mcp` on the machine with Chrome, then point the extension's bridge URL (extension settings) to it and pass the token.
 
 **Where do the files go?** `omniflow-out/` in the current working directory, or `OF_OUT=/path`.
 
