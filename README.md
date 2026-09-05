@@ -39,6 +39,8 @@ Claude Code:
 claude mcp add omniflow -- npx -y github:DanikVR/omniflow-veo-mcp
 ```
 
+> **Windows:** if PowerShell refuses to run `claude.ps1` / `npm.ps1` (script execution policy), call the `.cmd` shims instead: `claude.cmd mcp add omniflow -- npx.cmd -y github:DanikVR/omniflow-veo-mcp`.
+
 Claude Desktop — add to `claude_desktop_config.json`:
 
 ```json
