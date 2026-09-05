@@ -28,7 +28,19 @@ import { randomUUID, randomBytes, timingSafeEqual } from 'node:crypto';
 
 export const DEFAULT_PORT = Number(process.env.OF_PORT || 8787);
 export const HOST = process.env.OF_HOST || '127.0.0.1';
-const OUT_DIR = path.resolve(process.env.OF_OUT || path.join(process.cwd(), 'omniflow-out'));
+let OUT_DIR = path.resolve(process.env.OF_OUT || path.join(process.cwd(), 'omniflow-out'));
+// If the current directory is not writable (e.g. Claude Code launched from C:\Windows\System32),
+// fall back to ~/omniflow-out instead of dying on startup. An explicit OF_OUT is never overridden.
+function ensureOutDir() {
+  try { fs.mkdirSync(OUT_DIR, { recursive: true }); return; }
+  catch (e) {
+    if (process.env.OF_OUT) throw e;
+    const fallback = path.join(os.homedir(), 'omniflow-out');
+    log(`cannot create ${OUT_DIR} (${e.code}) — using ${fallback}`);
+    OUT_DIR = fallback;
+    ensureOutDir();
+  }
+}
 const TOKEN_FILE = path.join(os.homedir(), '.omniflow-token');
 const MAX_BODY = 96 * 1024 * 1024;      // 8с 720p в base64 ≈ 10 МБ; с запасом на пакет
 const TASK_TTL_MS = 20 * 60_000;        // «зависшая» running-задача возвращается в очередь
