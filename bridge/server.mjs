@@ -69,7 +69,7 @@ let brief = { text: '', digest: '', version: '' };
 const BRIEF_MAX = 32_000;
 
 const now = () => Date.now();
-const log = (...a) => console.error('[omniflow]', ...a);   // stderr: stdout занят MCP-протоколом
+const log = (...a) => console.error('[omniflow]', ...a);   // stderr: stdout is taken by the MCP protocol
 
 /** Картинка с диска → dataURL (расширение кладёт её в слот кадра через DataTransfer). */
 function fileToDataUrl(p) {
@@ -121,7 +121,7 @@ function videoAspect(p) {
 function normalizeItem(raw, opts) {
   const it = raw && typeof raw === 'object' ? raw : {};
   const prompt = String(it.prompt || '').trim();
-  if (!prompt) throw new Error('у элемента нет prompt');
+  if (!prompt) throw new Error('item has no prompt');
   const frames = it.frames && typeof it.frames === 'object' ? it.frames : null;
   const task = {
     id: randomUUID(),
@@ -382,7 +382,7 @@ export function createServer() {
           jobId, createdAt: new Date(now()).toISOString(), opts,
           items: ids.map((id) => { const t = tasks.get(id); return { seq: t.seq, prompt: t.prompt, mode: t.mode, model: t.model, aspect: t.aspect, length: t.length, hasFrames: !!t.frames }; }),
         }, null, 2), 'utf8');
-        log(`задание ${jobId}: ${ids.length} шт → ${dir}`);
+        log(`job ${jobId}: ${ids.length} item(s) → ${dir}`);
         return send(res, 200, { ok: true, jobId, count: ids.length, dir });
       }
 
@@ -458,9 +458,9 @@ export function startBridge(port = DEFAULT_PORT, host = HOST) {
     const srv = createServer();
     srv.once('error', (e) => (e && e.code === 'EADDRINUSE' ? resolve({ port, host, already: true, close: () => {} }) : reject(e)));
     srv.listen(port, host, () => {
-      log(`слушаю http://${host}:${port} · результаты → ${OUT_DIR}`);
-      if (isLoopback(host)) log('привязка локальная — токен не требуется');
-      else log(`ВНЕШНЯЯ привязка — расширению нужен токен: ${TOKEN}`);
+      log(`listening on http://${host}:${port} · results → ${OUT_DIR}`);
+      if (isLoopback(host)) log('bound to loopback — no token required');
+      else log(`EXTERNAL bind — the extension needs this token: ${TOKEN}`);
       resolve({ port, host, already: false, close: () => srv.close() });
     });
   });
@@ -468,5 +468,5 @@ export function startBridge(port = DEFAULT_PORT, host = HOST) {
 
 // Прямой запуск: `node bridge/server.mjs` — мост без MCP (ручной режим, отладка, curl).
 if (process.argv[1]?.replace(/\\/g, '/').endsWith('bridge/server.mjs')) {
-  startBridge().catch((e) => { log('не поднялся:', e.message); process.exit(1); });
+  startBridge().catch((e) => { log('failed to start:', e.message); process.exit(1); });
 }
