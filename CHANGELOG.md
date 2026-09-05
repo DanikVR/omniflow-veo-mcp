@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1 — 2026-09-05
+
+- Bridge no longer dies when the working directory is not writable (e.g. launched from `C:\Windows\System32`): results fall back to `~/omniflow-out`; an explicit `OF_OUT` is never overridden.
+- Bridge log messages in English.
+- Install straight from GitHub: `npx -y github:DanikVR/omniflow-veo-mcp` (npm package not published yet); Windows note for PowerShell users (`claude.cmd` / `npx.cmd`).
+- CI: publish step runs only when an npm token secret exists, so tag pushes stay green without it.
+
 ## 1.1.0 — 2026-09-05
 
 First public release of the bridge.
