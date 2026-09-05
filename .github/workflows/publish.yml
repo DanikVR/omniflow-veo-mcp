@@ -1,8 +1,8 @@
 name: Publish to npm
 
 # Пуш тега v1.2.3 → проверка синтаксиса → npm publish.
-# Публикация выполняется только если задан секрет NPM_TOKEN (или LING): без него прогон
-# остаётся зелёным, шаг publish пропускается. Токен: npm → Access Tokens → Granular, Read and write.
+# Публикация выполняется только если секрет NPM_TOKEN похож на настоящий npm-токен (npm_…):
+# иначе прогон остаётся зелёным, шаг publish пропускается. Токен: npm → Access Tokens → Granular, Read and write.
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN || secrets.LING }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -25,10 +25,10 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: npm run check
       - name: Publish to npm
-        if: env.NPM_TOKEN != ''
+        if: startsWith(env.NPM_TOKEN, 'npm_')
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ env.NPM_TOKEN }}
       - name: No npm token — publish skipped
-        if: env.NPM_TOKEN == ''
-        run: echo "NPM_TOKEN secret is not set; package check passed, publish skipped."
+        if: ${{ !startsWith(env.NPM_TOKEN, 'npm_') }}
+        run: echo "NPM_TOKEN secret is missing or is not an npm token (npm_...); package check passed, publish skipped."
