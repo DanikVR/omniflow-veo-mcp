@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.3.0 — 2026-10-11
+
+- Google Vids tools: `vids_generate` (create / animate / edit / extend / upscale), `vids_avatar`, `vids_voiceover`, `vids_music`, `vids_export` — a separate monthly pool of seconds.
+- Voice-over: start the script with `Female voice:` / `Male voice:` (or `Voice: Holt.`) to pick the voice; brand names are spoken correctly in the script's language.
+- Clip QA: `flow_review` returns contact sheets of every clip and seam with measured flags; `flow_redo` re-shoots one scene.
+- Final montage in Tesseract (`flow_postprod`, `montage.json`).
+- Several extension copies (Chrome profiles): the leader is the copy with a visible project tab.
+- Works with the OmniFlow Chrome extension 1.95.0.
+
 ## 1.1.2 — 2026-09-05
 
 - Published on npm: `npx -y omniflow-mcp` is back as the primary install command (GitHub install kept as a fallback).
